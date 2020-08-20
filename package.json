@@ -1,0 +1,27 @@
+{
+  "name": "front-monitor",
+  "version": "1.0.0",
+  "description": "<!--  * @file: description  * @author: zhangxing  * @Date: 2020-08-19 20:27:21  * @LastEditors: zhangxing  * @LastEditTime: 2020-08-20 10:22:40 -->",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onlyadaydreamer/front-monitor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onlyadaydreamer/front-monitor/issues"
+  },
+  "homepage": "https://github.com/onlyadaydreamer/front-monitor#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "user-agent": "^1.0.4",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

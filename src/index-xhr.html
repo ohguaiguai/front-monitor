@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>前端监控</title>
+  </head>
+  <body>
+    <div id="container">
+      <div class="content">
+        <input id="successBtn" type="button" value="ajax成功请求" onclick="sendSuccess()" />
+        <input id="errorBtn" type="button" value="ajax失败请求" onclick="sendError()" />
+      </div>
+    </div>
+    <script>
+      function sendSuccess() {
+        console.log(1);
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', '/success', true);
+        xhr.responseType = 'json';
+        xhr.onload = function () {
+          console.log(xhr.responseType);
+        };
+        xhr.send();
+      }
+
+      function sendError() {
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/error', true);
+        xhr.responseType = 'json';
+        xhr.onload = function () {
+          console.log(xhr.responseType);
+        };
+        xhr.onerror = function (error) {
+          console.log(error);
+        };
+        xhr.send('zx');
+      }
+    </script>
+  </body>
+</html>
