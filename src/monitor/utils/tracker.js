@@ -21,7 +21,7 @@ class SendTracker {
   send(data) {
     let extraData = getExtraData();
     let log = { ...extraData, ...data };
-    console.log('最终上报的', log);
+    console.log('log', log);
     // 阿里云的要求对象的值不能是数字
     for (let key in log) {
       if (typeof log[key] !== 'string') {
