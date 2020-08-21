@@ -4,6 +4,7 @@ module.exports = {
   entry: './src/index.js',
   context: process.cwd(), // 上下文为当前目录
   mode: 'development',
+  devtool: 'cheap-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'monitor.js'

@@ -2,9 +2,10 @@ import tracker from '../utils/tracker';
 import onload from '../utils/onload';
 
 export function blankScreen() {
-  let wrapperElements = ['html', 'body', '#container', '.content'];
+  let wrapperElements = ['html', '.no-touch', 'body', '#container', '.content'];
   let emptyPoints = 0;
   function getSelector(element) {
+    if (!element) return;
     if (element.id) {
       return '#' + element.id;
     } else if (element.className) {
@@ -19,10 +20,12 @@ export function blankScreen() {
   }
   // 判断是否是包裹容器
   function isWrapper(element) {
-    let selector = getSelector(element);
-    // 说明有包裹容器
-    if (wrapperElements.indexOf(selector) !== -1) {
-      emptyPoints++;
+    if (element) {
+      let selector = getSelector(element);
+      // 有包裹容器
+      if (wrapperElements.indexOf(selector) !== -1) {
+        emptyPoints++;
+      }
     }
   }
   onload(function () {
@@ -44,11 +47,10 @@ export function blankScreen() {
       isWrapper(xElements[0]);
       isWrapper(yElements[0]);
     }
-
-    if (emptyPoints > 0) {
+    if (emptyPoints > 18) {
       // 中心元素
       let centerElements = document.elementsFromPoint(
-        window.innerWidth / 1,
+        window.innerWidth / 2,
         window.innerHeight / 2
       );
       tracker.send({

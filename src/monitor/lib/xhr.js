@@ -6,7 +6,7 @@ export function injectXHR() {
   let oldOpen = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function (method, url, async) {
     // 过滤掉上报日志的请求
-    if (!url.match(/logstores/)) {
+    if (!url.match(/logstores/) && !url.match(/sockjs/)) {
       this.logData = {
         method,
         url,

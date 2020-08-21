@@ -7,9 +7,33 @@
   </head>
   <body>
     <div class="container">
-      <div class="content">
-        xxx
+      <div class="content" style="background: #ccc;">
+        <!-- <p style="color: red;">我是p</p> -->
+        <button id="btn" onclick="clickMe()">点我</button>
       </div>
     </div>
+    <script>
+      function clickMe() {
+        let start = Date.now();
+        while (Date.now() - start < 1000) {}
+      }
+      setTimeout(() => {
+        let content = document.querySelector('.content');
+        let h1 = document.createElement('h1');
+        h1.innerHTML = '我是这个页面中最有意义的内容';
+        h1.setAttribute('elementtiming', 'mainingful');
+        content.appendChild(h1);
+      }, 2000);
+      // // dom解析完成
+      // document.addEventListener('DOMContentLoaded', () => {
+      //   let start = Date.now();
+      //   while (Date.now() - start < 1000) {}
+      // });
+
+      // document.addEventListener('load', () => {
+      //   let start = Date.now();
+      //   while (Date.now() - start < 3000) {}
+      // });
+    </script>
   </body>
 </html>
